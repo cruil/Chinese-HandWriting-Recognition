@@ -14,10 +14,10 @@ anaconda python3.6.9 tensorflow-gpu1.13.1 (PyQt5 5.13)
 还有一个文件时编码汉字的吧，我不太了解，是为了后面编码汉字输出汉字用的就是本项目里面用到的 chinese_labels文件
 
 ##  训练：
-anaconda进入Chinese-HandWriting-Recognition文件夹,激活tensorflow-gpu,
+anaconda进入Chinese-HandWriting-Recognition文件夹,激活tensorflow-gpu, 
 python chinese_rec.py --mode=train --max_steps=16002 --eval_steps=100 --save_steps=500，通过mode的值来指定训练还是验证，
-后面三个参数是训练的轮数，每隔多少次验证一下，每个多少次保存一下模型。可以自己调整（）
-还有，不一定要把3755个字全部训练了，可以改变chinese_rec.py里面charset_size的值，
+后面三个参数是训练的轮数，每隔多少次验证一下，每个多少次保存一下模型。可以自己调整（） 
+还有，不一定要把3755个字全部训练了，可以改变chinese_rec.py里面charset_size的值， 
 来只使用一部分数据，这样可以节省点时间，机器性能不好也可以缓解一下
 
 ## 验证：
