@@ -403,17 +403,36 @@ def inference2():
             label_dict = get_label_dict()
             ret, frame = capture.read()
             show_img = frame.copy()
+            sp=show_img.shape
             cv2.rectangle(show_img, (100,100), (200, 200), (0, 0, 255), 5)
 
             crop_img = frame[100:200, 100:200]
             crop_img = cv2.cvtColor(crop_img, cv2.COLOR_BGR2GRAY)
             crop_img = crop_img.reshape(100,100)
 
-            cv2.imshow('fram e', show_img)
-
+            show_img = cv2.cvtColor(show_img, cv2.COLOR_BGR2GRAY)
+            show_img = show_img.reshape(480,640)
+            
+            #增加点对比度 去掉汉字外的干扰颜色
+            for i in range(100,200):
+                for j in range(100,200):
+                    if(show_img[i,j]>80 and show_img[i,j] <= 130):
+                        show_img[i,j] += 125
+                    elif(show_img[i,j]>130):
+                        show_img[i,j] = 245
+            
+            cv2.imshow('frame', show_img)
+            
             k = cv2.waitKey(1) 
         
             if k == ord('s'):
+                #增加点对比度
+                for i in range(100):
+                    for j in range(100):
+                        if(crop_img[i,j]>80 and crop_img[i,j]<=130):
+                            crop_img[i,j] += 125
+                        elif(crop_img[i,j]>130):
+                            crop_img[i,j] = 245   
 
                 #将数组转化为图片，这一步找了好久。。。  这一句要放在保存图片之后，不然图片保存不了，出错
                 crop_img = Image.fromarray(crop_img)       
@@ -496,11 +515,28 @@ def inference3():
             crop_img = cv2.cvtColor(crop_img, cv2.COLOR_BGR2GRAY)
             crop_img = crop_img.reshape(100,100)
 
+            show_img = cv2.cvtColor(show_img, cv2.COLOR_BGR2GRAY)
+            show_img = show_img.reshape(480,640)
+            
+            #增加点对比度
+            for i in range(100,200):
+                for j in range(100,200):
+                    if(show_img[i,j]>80 and show_img[i,j] <= 130):
+                        show_img[i,j] += 125
+                    elif(show_img[i,j]>130):
+                        show_img[i,j] = 245
             cv2.imshow('fram e', show_img)
 
             k = cv2.waitKey(1) 
         
             if k == ord('s'):
+                #增加点对比度
+                for i in range(100):
+                    for j in range(100):
+                        if(crop_img[i,j]>80 and crop_img[i,j]<=130):
+                            crop_img[i,j] += 125
+                        elif(crop_img[i,j]>130):
+                            crop_img[i,j] = 245
                 #先把截到的图存下来，然后返回给gui，直接返回我不太会，所有先保存成文件再返回
                 file_name=("./imageinf2_path/imageinf2.png")
                 cv2.imwrite(file_name, crop_img)
