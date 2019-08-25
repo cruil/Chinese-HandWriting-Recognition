@@ -18,9 +18,9 @@ class MyWindow(QWidget):
         self.ansPredict_2 = 0
         self.ansPredict_3 = 0
         #示例所用图片文件路径
-        self.myFileStr = './data/test/00999/223400.png'  # 这是inference的输入
+        self.myFileStr = './data/test/00158/6377.png'  # 这是inference的输入
         #示例答案
-        self.ans = '帆'  # 这是inference的结果
+        self.ans = '佩'  # 这是inference的结果
         #示例路径显示在行编辑器里
         self.LineEdit = QLineEdit(self.myFileStr)
         self.okButton = QPushButton("OK")
