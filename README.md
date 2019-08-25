@@ -26,7 +26,7 @@ anaconda python3.6.9 tensorflow-gpu1.13.1 (PyQt5 5.13)
 ## 推理推断（开始识字了）：
 chinese_rec里面有三个inference函数：
 
-### inference1()是识别指定汉字图片的，命令行：``python chinese_rec.py --mode=inference1``，把要是别的汉字png格式图片放到./tmp文件夹下就可以啦
+### inference1()是识别指定汉字图片的，命令行：``python chinese_rec.py --mode=inference1``，把要识别的汉字png格式图片放到./tmp文件夹下就可以啦
 
 ### inference2()是通过摄像头识字，将写好的字通过摄像头放在画面中红色的方框内，按下“s”键，进行识别，按下“q”键退出。这里摄像头用的是笔记本自带的摄像头，如果使用usb摄像头，将capture = cv2.VideoCapture(0)改为capture = cv2.VideoCapture(1)命令行：``python chinese_rec.py --mode=inference2``
   
@@ -34,7 +34,7 @@ chinese_rec里面有三个inference函数：
 
 为什么有了inference2,还要写inference3,因为我比较菜，GUI是后面加上去的，为了省事，就用了两个，分开写。
 
-如果直接运行python QTGUI_chinese_rec.py 可以把之前在命令行的东西搞到一个界面里，点击“...”按钮选择要是别的png图片，点击ok,输出结果。
+如果直接运行python QTGUI_chinese_rec.py 可以把之前在命令行的东西搞到一个界面里，点击“...”按钮选择识别的png图片，点击ok,输出结果。
 点击“摄像头”按钮，打开摄像头，再按下“s”键，输出识别结果，摄像头关闭。下一次需要再点击“摄像头”
 
 ## 参考：
